@@ -62,14 +62,25 @@ function playSound() {
     oscillator.type = "sine";
 
     const notes = [
-  392, 330, 330,
-  349, 294, 294,
-  262, 294, 330, 349, 392, 392, 392,
-  392, 330, 330, 330,
-  349, 294, 294, 294
+  392, 349, 330, 0,
+  294, 330, 349, 294, 262, 0,
+
+  330, 349, 392, 330,
+  294, 330, 349, 294,
+
+  330, 349, 392, 330,
+  294, 330, 349, 294,
+
+  392, 349, 330, 0,
+  294, 330, 349, 294, 262, 0
 ];
-    oscillator.frequency.value =
-      notes[(tapCount - 1) % notes.length];
+    const frequency = notes[(tapCount - 1) % notes.length];
+
+if (frequency === 0) {
+    return;
+}
+
+oscillator.frequency.value = frequency;
 
     gain.gain.setValueAtTime(
       0.0001,
