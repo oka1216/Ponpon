@@ -36,7 +36,9 @@ const messages = [
 ];
 
 let tapCount = 0;
-let audioContext = null;
+let totalTapCount = Number(localStorage.getItem("ponponTotal")) || 0;
+const totalCountDisplay = document.getElementById("totalCount");
+let audioContext = null;;
 
 // ボタンを押したときに短い音を鳴らす
 function playSound() {
