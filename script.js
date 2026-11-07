@@ -38,7 +38,9 @@ const messages = [
 let tapCount = 0;
 let totalTapCount = Number(localStorage.getItem("ponponTotal")) || 0;
 const totalCountDisplay = document.getElementById("totalCount");
-let audioContext = null;;
+totalCountDisplay.textContent =
+    `これまでに ${totalTapCount.toLocaleString()} 回 おしたよ！`;
+let audioContext = null;
 
 // ボタンを押したときに短い音を鳴らす
 function playSound() {
@@ -120,6 +122,10 @@ function makeConfetti() {
 // ボタンを押したときの動き
 button.addEventListener("click", () => {
   tapCount++;
+      totalTapCount++;
+    localStorage.setItem("ponponTotal", totalTapCount);
+    totalCountDisplay.textContent =
+        `これまでに ${totalTapCount.toLocaleString()} 回 おしたよ！`;
 
   const colorIndex =
     Math.floor(Math.random() * colors.length);
