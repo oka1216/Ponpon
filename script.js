@@ -35,8 +35,6 @@ const faceImages = [
 ];
 
 const messages = [
-
-const messages = [
   "ぽんぽん<br>パーティー！",
   "わあ！",
   "きらきら！",
