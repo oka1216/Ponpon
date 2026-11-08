@@ -26,6 +26,16 @@ const emojis = [
   "🌈"
 ];
 
+const faceImages = [
+  "child1.jpg",
+  "child2.jpg",
+  "child3.png",
+  "child5.png",
+  "child6.png"
+];
+
+const messages = [
+
 const messages = [
   "ぽんぽん<br>パーティー！",
   "わあ！",
