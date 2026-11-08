@@ -157,15 +157,20 @@ button.addEventListener("click", () => {
   const colorIndex =
     Math.floor(Math.random() * colors.length);
 
-  const emojiIndex =
-    Math.floor(Math.random() * emojis.length);
+  const itemIndex =
+  Math.floor(Math.random() * (emojis.length + faceImages.length));
 
   const messageIndex =
     Math.floor(Math.random() * messages.length);
 
   game.style.background = colors[colorIndex];
 
-  emoji.textContent = emojis[emojiIndex];
+  if (itemIndex < emojis.length) {
+  emoji.textContent = emojis[itemIndex];
+} else {
+  const faceIndex = itemIndex - emojis.length;
+  emoji.innerHTML = `<img src="${faceImages[faceIndex]}" alt="顔ステッカー" style="width:180px; height:180px; max-width:70vw; object-fit:contain;">`;
+}
   message.innerHTML = messages[messageIndex];
 
   stars.textContent =
